@@ -1,0 +1,9 @@
+// https://www.interviewcake.com/concept/java/bloom-filter
+When to use bloom filters
+Bloom filters are a great first layer of filtering, since they don't require much space and
+can fit in fast storage, like RAM. Consider using them anywhere where knowing if something
+is definitely not present or possibly present would be helpful.
+
+One common use is to eliminate unnecessary accesses to slower storage / expensive lookups.
+
+For instance, say we wanted to query a large database stored on a rotating hard drive (slow to read from). And suppose the thing we're querying for has a good chance of not being present at all. Before querying the disk, we could check for the record in a bloom filter; if the bloom filter says the record definitely isn't present, then we don't need to touch the slow disk at all.

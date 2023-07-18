@@ -1,0 +1,10 @@
+func (s {{.Node.Name}}) {{.Field.Name|title}}() bool {
+	{{template "_checktag" . -}}
+	return {{if .Default}}!{{end}}capnp.Struct(s).Bit({{.Field.Slot.Offset}})
+}
+
+func (s {{.Node.Name}}) Set{{.Field.Name|title}}(v bool) {
+	{{template "_settag" . -}}
+	capnp.Struct(s).SetBit({{.Field.Slot.Offset}}, {{if .Default}}!{{end}}v)
+}
+

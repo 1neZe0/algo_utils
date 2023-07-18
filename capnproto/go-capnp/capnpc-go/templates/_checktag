@@ -1,0 +1,5 @@
+{{if .Field.HasDiscriminant -}}
+if capnp.Struct(s).Uint16({{.Node.DiscriminantOffset}}) != {{.Field.DiscriminantValue}} {
+  panic({{printf "Which() != %s" .Field.Name | printf "%q"}})
+}
+{{end -}}

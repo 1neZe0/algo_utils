@@ -1,0 +1,2 @@
+Bloom filters are well-known space-efficient data structures to serve queries like "if item x is in a set?", they do not support deletion.
+Cuckoo ﬁlters provide the ﬂexibility to add and remove items dynamically.

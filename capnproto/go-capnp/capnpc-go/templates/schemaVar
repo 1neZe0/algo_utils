@@ -1,0 +1,13 @@
+const schema_{{.FileID|printf "%x"}} = {{.SchemaLiteral}}
+
+func RegisterSchema(reg *{{.G.Imports.Schemas}}.Registry) {
+	reg.Register(&{{.G.Imports.Schemas}}.Schema{
+		String: schema_{{.FileID|printf "%x"}},
+		Nodes: []uint64{
+			{{- range .NodeIDs}}
+			{{.|printf "%#x"}},
+			{{- end}}
+		},
+		Compressed: true,
+	})
+}
